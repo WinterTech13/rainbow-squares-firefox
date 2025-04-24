@@ -1,0 +1,52 @@
+@-moz-document url("about:home"), url("about:newtab") {
+  body {
+    background: #000000 !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  body::before,
+  body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  body::before {
+    background: url("img/squares2.png");
+    animation: gridbg linear 5s infinite;
+  }
+
+  body::after {
+    background: url("img/squares1.png");
+    animation: gridbg-reverse linear 5s infinite;
+  }
+}
+
+@keyframes gridbg {
+  from {
+    background-position: 0px 0px;
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    background-position: 128px 128px;
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes gridbg-reverse {
+  from {
+    background-position: 0px 0px;
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    background-position: -256px -256px;
+    filter: hue-rotate(360deg);
+  }
+}
